@@ -3,10 +3,8 @@ import './MenuItem.css';
 import PropTypes from 'prop-types';
 
 export default function MenuItem({ text, active, children }) {
-    const activeClass = active ? 'active' : '';
-    
     return (
-        <div className={`menu-item ${activeClass}`}>
+        <div className={`menu-item ${active && 'active'}`}>
             {children}
             <span className={`menu-item__text`}>
                 {text}
