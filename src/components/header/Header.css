@@ -1,0 +1,15 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    overflow-x: scroll;
+    margin-bottom: 1rem;
+}
+
+.header::-webkit-scrollbar {
+    display: none;
+}
+
+.header__logo {
+    height: 80px;
+    object-fit: contain;
+}

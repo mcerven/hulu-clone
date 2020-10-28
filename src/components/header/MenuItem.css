@@ -1,0 +1,36 @@
+.menu-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    margin-right: 1.5rem;
+    cursor: pointer;
+    width: 4rem;
+    text-align: center;
+    opacity: 0.8;
+}
+
+.menu-item.active {
+    opacity: 1;
+}
+
+.menu-item .MuiSvgIcon-root {
+    font-size: 1.9rem;
+}
+
+.menu-item__text {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    margin-top: 0.2rem;
+    display: none;
+}
+
+.menu-item.active .menu-item__text,
+.menu-item:hover > .menu-item__text {
+    display: block;
+}
+
+.menu-item:hover {
+    transform: translateY(-0.3rem);
+}
