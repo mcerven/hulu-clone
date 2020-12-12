@@ -26,7 +26,6 @@
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    line-height: 1em;
 }
 
 .movie-card__additional-info {
