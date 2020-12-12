@@ -1,6 +1,5 @@
-// API: https://www.themoviedb.org/settings/api
-const baseUrl = 'https://api.themoviedb.org/3';
-const apiKey = 'b5fe20025518c6ee92358aabf800f360';
+import { baseUrl, apiKey } from './requests';
+
 const mediaType = 'movie';
 
 export default [

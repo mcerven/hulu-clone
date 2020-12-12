@@ -7,12 +7,15 @@ import VideoLibraryIcon from '@material-ui/icons/VideoLibrary';
 import SearchIcon from '@material-ui/icons/Search';
 import PersonOutlineIcon from '@material-ui/icons/PersonOutline';
 import MenuItem from './MenuItem';
+import { Link } from 'react-router-dom';
 
 export default function HeaderMenu() {
     return (
         <div className="header-menu">
             <MenuItem text="Home" active>
-                <HomeIcon />
+                <Link to={'/'}>
+                    <HomeIcon />
+                </Link>
             </MenuItem>
             <MenuItem text="Trending">
                 <FlashOnIcon />

@@ -45,7 +45,7 @@ export default function Results({
                 setSelectedNavItem(navData[0]);
                 console.error(error);
             });
-    }, [selectedNavItem]);
+    }, [selectedNavItem, setSelectedNavItem]);
 
     if (!movies) {
         return (

@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     overflow-x: scroll;
-    margin-bottom: 1rem;
+    margin-bottom: 1em;
 }
 
 .header::-webkit-scrollbar {
