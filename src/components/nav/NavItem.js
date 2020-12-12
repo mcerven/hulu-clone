@@ -2,30 +2,28 @@ import React from 'react';
 import './NavItem.css';
 import PropTypes from 'prop-types';
 
-export default function NavItem({ 
-    text,
-    url,
-    selectedNavItemUrl,
-    setSelectedNavItemUrl,
+export default function NavItem({
+    navItem,
+    selectedNavItem,
+    setSelectedNavItem,
  }) {
     const handleClick = () => {
-        setSelectedNavItemUrl(url);
+        setSelectedNavItem(navItem);
     };
 
-    const activeClass = url === selectedNavItemUrl ? 'active' : '';
+    const activeClass = navItem.id === selectedNavItem.id ? 'active' : '';
 
     return (
         <span
             className={`nav-item ${activeClass}`}
             onClick={handleClick}>
-           { text }
+           { navItem.text }
         </span>
     )
 }
 
 NavItem.propTypes = {
-    text: PropTypes.string.isRequired,
-    url: PropTypes.string.isRequired,
-    selectedNavItemUrl: PropTypes.string.isRequired,
-    setSelectedNavItemUrl: PropTypes.func.isRequired,
+    navItem: PropTypes.object.isRequired,
+    selectedNavItem: PropTypes.object.isRequired,
+    setSelectedNavItem: PropTypes.func.isRequired,
 };
