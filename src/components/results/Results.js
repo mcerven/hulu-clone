@@ -64,7 +64,7 @@ export default function Results({
                 loader={<h2>Loading...</h2>}>
                 <div className="results__items">
                     { movies.map(movie => 
-                        <MovieCard key={movie.id} movie={movie} />
+                        <MovieCard key={movie.id} {...movie} />
                     )}
                 </div>
             </InfiniteScroll>

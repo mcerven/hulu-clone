@@ -2,11 +2,7 @@ import React from 'react';
 import './NavItem.css';
 import PropTypes from 'prop-types';
 
-export default function NavItem({
-    navItem,
-    selectedNavItem,
-    setSelectedNavItem,
- }) {
+export default function NavItem({ navItem, selectedNavItem, setSelectedNavItem }) {
     const handleClick = () => {
         setSelectedNavItem(navItem);
     };

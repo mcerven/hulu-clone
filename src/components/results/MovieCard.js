@@ -4,17 +4,19 @@ import ThumbUpIcon from '@material-ui/icons/ThumbUp';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-export default function MovieCard({movie}) {
-    const imageUrl = `https://image.tmdb.org/t/p/original${movie.backdrop_path || movie.poster_path}`;
+export default function MovieCard({ 
+    id, title, overview, backdrop_path, poster_path, release_date, vote_count
+}) {
+    const imageUrl = `https://image.tmdb.org/t/p/original${backdrop_path || poster_path}`;
     
     return (
         <section className="movie-card">
-            <Link to={`/movies/${movie.id}`} className="button-link">
-                <img src={imageUrl} alt={movie.title} />
-                <p>{movie.overview}</p>
-                <h1>{movie.title}</h1>
+            <Link to={`/movies/${id}`} className="button-link">
+                <img src={imageUrl} alt={title} />
+                <p>{overview}</p>
+                <h1>{title}</h1>
                 <div className="movie-card__additional-info">
-                    {movie.release_date} • <span><ThumbUpIcon /> {movie.vote_count}</span>
+                    {release_date} • <span><ThumbUpIcon /> {vote_count}</span>
                 </div>
             </Link>
         </section>
@@ -22,5 +24,11 @@ export default function MovieCard({movie}) {
 }
 
 MovieCard.propTypes = {
-    movie: PropTypes.object.isRequired,
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    overview: PropTypes.string.isRequired,
+    backdrop_path: PropTypes.string,
+    poster_path: PropTypes.string,
+    release_date: PropTypes.string.isRequired,
+    vote_count: PropTypes.number.isRequired,
 }
