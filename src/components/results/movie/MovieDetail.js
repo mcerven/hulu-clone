@@ -47,12 +47,12 @@ export default function MovieDetail() {
                 <div className="movie-detail__subinfo">
                     <span className="movie-detail__rating-icon"><StarIcon fontSize="small" /></span>
                     <span>{ rating }%</span>
-                    <span> | </span>
+                    <span className="movie-detail__separator">|</span>
                     <span>{ movie.release_date }</span>
-                    <span> | </span>
+                    <span className="movie-detail__separator">|</span>
                     <span>{ genres }</span>
                 </div>
-                <p>{ movie.overview }</p>
+                <p className="movie-detail__overview">{ movie.overview }</p>
             </div>
         </section>
     );

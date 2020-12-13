@@ -3,11 +3,26 @@
     gap: 3em;
 }
 
+.movie-detail h1 {
+    font-size: 2.5rem;
+    letter-spacing: 1px;
+}
+
+.movie-detail__separator {
+    user-select: none;
+    padding: 0.5em;
+}
+
 .movie-detail__subinfo {
-    opacity: 0.85;
+    opacity: 0.8;
+    margin-top: 0.2em;
 }
 
 .movie-detail__rating-icon {
     color: rgb(230, 195, 1);
     vertical-align: text-top;
+}
+
+.movie-detail__overview {
+    margin-top: 1.5em;
 }
