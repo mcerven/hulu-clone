@@ -13,7 +13,7 @@ export default function HeaderMenu() {
     return (
         <div className="header-menu">
             <MenuItem text="Home" active>
-                <Link to={'/'}>
+                <Link to={'/'} className="button-link">
                     <HomeIcon />
                 </Link>
             </MenuItem>

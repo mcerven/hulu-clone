@@ -61,7 +61,6 @@ export default function Results({
                 dataLength={movies.length}
                 next={fetchNextMovies}
                 hasMore={totalResultsCount > movies.length}
-                scrollThreshold="500px"
                 loader={<h2>Loading...</h2>}>
                 <div className="results__items">
                     { movies.map(movie => 

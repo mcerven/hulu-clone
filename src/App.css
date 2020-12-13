@@ -10,3 +10,8 @@ body {
 .app__main {
   margin-top: 2em;
 }
+
+.button-link {
+  color: inherit;
+  text-decoration: none;
+}

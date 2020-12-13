@@ -8,6 +8,7 @@
 .movie-card:hover {
     transform: scale(1.05);
 }
+
 .movie-card:hover > .movie-card__additional-info {
     visibility: visible;
 }
