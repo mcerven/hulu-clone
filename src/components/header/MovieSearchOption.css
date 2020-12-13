@@ -1,0 +1,16 @@
+.movie-search-option__content {
+    display: flex;
+    gap: 1em;
+}
+
+.movie-search-option img {
+    height: 75px;
+}
+
+.movie-search-option__info--primary {
+    color: black;
+}
+
+.movie-search-option__info--secondary {
+    color: #666;
+}

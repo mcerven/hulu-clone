@@ -3,3 +3,19 @@
     flex-wrap: wrap;
     gap: 1em;
 }
+
+
+.MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline,
+.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+    border-color: #aaa !important;
+}
+
+.MuiAutocomplete-root .MuiFormLabel-root.Mui-focused {
+    color: #aaa;
+}
+
+.MuiOutlinedInput-root input,
+.MuiAutocomplete-root .MuiIconButton-root,
+.MuiAutocomplete-root .MuiFormLabel-root {
+    color: white;
+}

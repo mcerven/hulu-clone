@@ -27,8 +27,8 @@ export default function MovieDetail() {
     const [movie, setMovie] = useState(null);
     const [error, setError] = useState(null);
 
-    const imageUrl = `https://image.tmdb.org/t/p/w300${movie?.poster_path}`;
-    const rating = movie?.vote_average * 10;
+    const imageUrl = `https://image.tmdb.org/t/p/w300${movie?.poster_path || movie?.backdrop_path}`;
+    const rating = movie?.vote_average ? movie.vote_average * 10 : null;
     const genres = movie?.genres?.map(g => g.name).join(', ');
     
     useEffect(() => {
@@ -45,9 +45,13 @@ export default function MovieDetail() {
             <div className="movie-detail__info">
                 <h1>{ movie.title }</h1>
                 <div className="movie-detail__subinfo">
-                    <span className="movie-detail__rating-icon"><StarIcon fontSize="small" /></span>
-                    <span>{ rating }%</span>
-                    <span className="movie-detail__separator">|</span>
+                    {rating && 
+                        <>
+                            <span className="movie-detail__rating-icon"><StarIcon fontSize="small" /></span>
+                            <span>{ rating }%</span> 
+                            <span className="movie-detail__separator">|</span>
+                        </>
+                    }
                     <span>{ movie.release_date }</span>
                     <span className="movie-detail__separator">|</span>
                     <span>{ genres }</span>

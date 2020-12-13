@@ -7,6 +7,7 @@ import VideoLibraryIcon from '@material-ui/icons/VideoLibrary';
 import SearchIcon from '@material-ui/icons/Search';
 import PersonOutlineIcon from '@material-ui/icons/PersonOutline';
 import MenuItem from './MenuItem';
+import SearchMovie from './SearchMovie';
 import { Link } from 'react-router-dom';
 
 export default function HeaderMenu() {
@@ -32,6 +33,7 @@ export default function HeaderMenu() {
             <MenuItem text="Account">
                 <PersonOutlineIcon />
             </MenuItem>
+            <SearchMovie />
         </div>
     );
 }
