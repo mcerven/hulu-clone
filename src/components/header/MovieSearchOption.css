@@ -5,10 +5,12 @@
 
 .movie-search-option img {
     height: 75px;
+    object-fit: contain;
 }
 
 .movie-search-option__info--primary {
     color: black;
+    width: 100%;
 }
 
 .movie-search-option__info--secondary {

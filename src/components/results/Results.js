@@ -7,26 +7,23 @@ import navData from '../../navData';
 
 const initPage = 1;
 
-export default function Results({
-    selectedNavItem,
-    setSelectedNavItem,
-}) {
+export default function Results({ selectedNavItem, setSelectedNavItem }) {
     const [movies, setMovies] = useState([]);
     const [page, setPage] = useState(initPage);
     const [totalResultsCount, setTotalResultsCount] = useState(null);
 
     const fetchNextMovies = () => {
-    const url = selectedNavItem.getUrl(page + 1);
+        const url = selectedNavItem.getUrl(page + 1);
 
-    fetch(url)
-        .then(respone => respone.json())
-        .then(({results}) => {
-        setMovies([...movies, ...results]);
-        setPage(page + 1);
-        })
-        .catch(error => {
-        console.error(error);
-        });
+        fetch(url)
+            .then(respone => respone.json())
+            .then(({results}) => {
+                setMovies([...movies, ...results]);
+                setPage(page + 1);
+            })
+            .catch(error => {
+                console.error(error);
+            });
     }
 
     useEffect(() => {

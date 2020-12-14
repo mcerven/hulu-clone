@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import requests from '../../../requests';
 import StarIcon from '@material-ui/icons/Star';
 import MovieTrailerButton from './MovieTrailerButton';
+import NoImage from './../../../assets/images/NoImage.png';
 
 const getMovie = async (id, setMovie, setError) => {
     try {
@@ -44,9 +45,16 @@ export default function MovieDetail() {
     const [trailerUrl, setTrailerUrl] = useState(null);
     const [error, setError] = useState(null);
 
-    const imageUrl = `https://image.tmdb.org/t/p/w400${movie?.poster_path || movie?.backdrop_path}`;
     const rating = movie?.vote_average ? movie.vote_average * 10 : null;
     const genres = movie?.genres?.map(g => g.name).join(', ');
+
+    const getImageUrl = () => {
+        const imagePath = movie?.poster_path || movie?.backdrop_path;
+        if (!imagePath)
+            return NoImage;
+        
+        return `https://image.tmdb.org/t/p/w300${imagePath}`;
+    }
     
     useEffect(() => {
         getMovie(id, setMovie, setError);
@@ -59,11 +67,11 @@ export default function MovieDetail() {
 
     return (
         <section className="movie-detail">
-            <img src={imageUrl} alt={movie.title} />
+            <img src={getImageUrl()} alt={movie.title} />
             <div className="movie-detail__info">
                 <h1>{ movie.title }</h1>
                 <div className="movie-detail__subinfo">
-                    {rating && 
+                    {rating &&
                         <>
                             <span className="movie-detail__rating-icon"><StarIcon fontSize="small" /></span>
                             <span>{ rating }%</span> 
