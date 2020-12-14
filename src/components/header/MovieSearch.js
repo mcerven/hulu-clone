@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import TextField from "@material-ui/core/TextField";
 import Autocomplete from "@material-ui/lab/Autocomplete";
-import requests from './../../requests'
+import requests from '../../requests'
 import { MovieSearchOption } from "./MovieSearchOption";
 
-export default function SearchMovie() {
+export default function MovieSearch() {
   const [input, setInput] = useState('');
   const [movies, setMovies] = useState([]);
 

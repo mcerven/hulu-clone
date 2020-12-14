@@ -3,16 +3,15 @@ import './MovieDetail.css'
 import { useParams } from 'react-router-dom';
 import requests from '../../../requests';
 import StarIcon from '@material-ui/icons/Star';
+import MovieTrailerButton from './MovieTrailerButton';
 
-const fetchMovie = async (id, setMovie, setError) => {
+const getMovie = async (id, setMovie, setError) => {
     try {
         const response = await fetch(requests.getMovieDetails(id));
         const data = await response.json();
-        
-        console.log(data);
-        
-        if (data.success === false) {
-            throw Error(data.status_message);
+
+        if (!data || data.success === false) {
+            throw Error(data?.status_message);
         }
 
         setMovie(data);
@@ -22,17 +21,36 @@ const fetchMovie = async (id, setMovie, setError) => {
     }
 }
 
+const getTrailer = async (id, setTrailerUrl) => {
+    try {
+        const response = await fetch(requests.getMovieTrailer(id));
+        const data = await response.json();
+        
+        console.log(data)
+        
+        if (!data || data.success === false) {
+            throw Error(data?.status_message);
+        }
+
+        setTrailerUrl(`https://www.youtube.com/embed/${data.results[0].key}?rel=0&autoplay=1`);
+    } catch(error) {
+        console.error(error);
+    }
+}
+
 export default function MovieDetail() {
     const { id } = useParams();
     const [movie, setMovie] = useState(null);
+    const [trailerUrl, setTrailerUrl] = useState(null);
     const [error, setError] = useState(null);
 
-    const imageUrl = `https://image.tmdb.org/t/p/w300${movie?.poster_path || movie?.backdrop_path}`;
+    const imageUrl = `https://image.tmdb.org/t/p/w400${movie?.poster_path || movie?.backdrop_path}`;
     const rating = movie?.vote_average ? movie.vote_average * 10 : null;
     const genres = movie?.genres?.map(g => g.name).join(', ');
     
     useEffect(() => {
-        fetchMovie(id, setMovie, setError);
+        getMovie(id, setMovie, setError);
+        getTrailer(id, setTrailerUrl);
     }, [id]);
     
 
@@ -57,6 +75,7 @@ export default function MovieDetail() {
                     <span>{ genres }</span>
                 </div>
                 <p className="movie-detail__overview">{ movie.overview }</p>
+                { trailerUrl && <MovieTrailerButton trailerUrl={trailerUrl} buttonText="Play Trailer" /> }
             </div>
         </section>
     );
