@@ -1,16 +1,17 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import './HeaderMenu.css';
 import HomeIcon from '@material-ui/icons/Home';
 import FlashOnIcon from '@material-ui/icons/FlashOn';
 import LiveTvIcon from '@material-ui/icons/LiveTv';
 import VideoLibraryIcon from '@material-ui/icons/VideoLibrary';
 import SearchIcon from '@material-ui/icons/Search';
-import PersonOutlineIcon from '@material-ui/icons/PersonOutline';
 import MenuItem from './MenuItem';
 import MovieSearch from './MovieSearch';
 import { Link } from 'react-router-dom';
 
 export default function HeaderMenu() {
+    const movieSearchRef = useRef(null);
+
     return (
         <div className="header-menu">
             <MenuItem text="Home" active>
@@ -28,12 +29,9 @@ export default function HeaderMenu() {
                 <VideoLibraryIcon />
             </MenuItem>
             <MenuItem text="Search">
-                <SearchIcon />
+                <SearchIcon onClick={() => movieSearchRef.current.focus()} />
             </MenuItem>
-            <MenuItem text="Account">
-                <PersonOutlineIcon />
-            </MenuItem>
-            <MovieSearch />
+            <MovieSearch ref={movieSearchRef} />
         </div>
     );
 }
