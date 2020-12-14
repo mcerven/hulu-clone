@@ -14,24 +14,36 @@ export default function HeaderMenu() {
 
     return (
         <div className="header-menu">
-            <MenuItem text="Home" active>
-                <Link to={'/'} className="button-link">
-                    <HomeIcon />
-                </Link>
-            </MenuItem>
-            <MenuItem text="Trending">
-                <FlashOnIcon />
-            </MenuItem>
-            <MenuItem text="Verified">
-                <LiveTvIcon />
-            </MenuItem>
-            <MenuItem text="Collections">
-                <VideoLibraryIcon />
-            </MenuItem>
-            <MenuItem text="Search">
-                <SearchIcon onClick={() => movieSearchRef.current.focus()} />
-            </MenuItem>
-            <MovieSearch ref={movieSearchRef} />
+            <div>
+                <MenuItem text="Home" active>
+                    <Link to={'/'} className="button-link">
+                        <HomeIcon />
+                    </Link>
+                </MenuItem>
+            </div>
+            <div>
+                <MenuItem text="Trending">
+                    <FlashOnIcon />
+                </MenuItem>
+            </div>
+            <div>
+                <MenuItem text="Verified">
+                    <LiveTvIcon />
+                </MenuItem>
+            </div>
+            <div>
+                <MenuItem text="Collections">
+                    <VideoLibraryIcon />
+                </MenuItem>
+            </div>
+            <div onClick={() => movieSearchRef.current.focus()}>
+                <MenuItem text="Search">
+                    <SearchIcon />
+                </MenuItem>
+            </div>
+            <div style={{marginLeft: '-1em'}}>
+                <MovieSearch ref={movieSearchRef} />
+            </div>
         </div>
     );
 }
