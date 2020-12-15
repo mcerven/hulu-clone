@@ -1,25 +1,28 @@
 import React, { useEffect, useState } from 'react';
 import MovieCard from './MovieCard';
 import './Results.css';
-import PropTypes from "prop-types";
 import InfiniteScroll from "react-infinite-scroll-component";
 import navData from '../../navData';
+import { useParams } from 'react-router-dom';
+import NotFound from '../error/NotFound';
 
-const initPage = 1;
+const initialPage = 1;
 
-export default function Results({ selectedNavItem, setSelectedNavItem }) {
+export default function Results() {
+    const { id } = useParams();
     const [movies, setMovies] = useState([]);
-    const [page, setPage] = useState(initPage);
+    const [page, setPage] = useState(initialPage);
     const [totalResultsCount, setTotalResultsCount] = useState(null);
 
     const fetchNextMovies = () => {
+        const selectedNavItem = navData.find(navItem => navItem.path === id);
         const url = selectedNavItem.getUrl(page + 1);
 
         fetch(url)
             .then(respone => respone.json())
             .then(({results}) => {
                 setMovies([...movies, ...results]);
-                setPage(page + 1);
+                setPage(p => p + 1);
             })
             .catch(error => {
                 console.error(error);
@@ -27,9 +30,19 @@ export default function Results({ selectedNavItem, setSelectedNavItem }) {
     }
 
     useEffect(() => {
-        if (!selectedNavItem) return;
+        if (!id) {
+            setMovies(null);
+            return;
+        }
 
-        setPage(initPage);
+        setPage(initialPage);
+        
+        const selectedNavItem = navData.find(navItem => navItem.path === id);
+        if (!selectedNavItem) {
+            setMovies(null);
+            return;
+        }
+        
         const url = selectedNavItem.getUrl();
 
         fetch(url)
@@ -39,17 +52,12 @@ export default function Results({ selectedNavItem, setSelectedNavItem }) {
                 setMovies(results);
             })
             .catch(error => {
-                setSelectedNavItem(navData[0]);
                 console.error(error);
             });
-    }, [selectedNavItem, setSelectedNavItem]);
+    }, [id]);
 
-    if (!movies) {
-        return (
-            <div>
-                <h2>No results found</h2>
-            </div>
-        );
+    if (movies == null) {
+        return <NotFound />
     }
 
     return (
@@ -67,9 +75,4 @@ export default function Results({ selectedNavItem, setSelectedNavItem }) {
             </InfiniteScroll>
         </div>
     );
-}
-
-Results.propTypes = {
-    selectedNavItem: PropTypes.object.isRequired,
-    setSelectedNavItem: PropTypes.func.isRequired,
 }

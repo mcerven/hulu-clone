@@ -2,23 +2,26 @@ import React from 'react';
 import './Nav.css';
 import NavItem from './NavItem';
 import navData from '../../navData';
-import PropTypes from 'prop-types';
+import { matchPath, withRouter } from 'react-router-dom';
 
-export default function Nav({selectedNavItem, setSelectedNavItem}) {
+const Nav = ({history}) => {
+    const match = matchPath(history.location.pathname, {
+        path: "/movies/category/:id"
+    })
+
+    let categoryId;
+
+    if (match && match.params.id) {
+        categoryId = match.params.id;
+    }
+    
     return (
         <div className="nav">
             { navData.map(navData =>
-                <NavItem
-                    key={navData.id}
-                    navItem={navData}
-                    selectedNavItem={selectedNavItem}
-                    setSelectedNavItem={setSelectedNavItem} />
+                <NavItem key={navData.path} navItem={navData} categoryId={categoryId} />
             )}
         </div>
     )
 }
 
-Nav.propTypes = {
-    selectedNavItem: PropTypes.object.isRequired,
-    setSelectedNavItem: PropTypes.func.isRequired,
-};
+export default withRouter(Nav);

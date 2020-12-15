@@ -4,58 +4,53 @@ const mediaType = 'movie';
 
 export default [
     {
-        id: 1,
+        path: "trending",
         text: "Trending",
         getUrl: (page = 1) => `${baseUrl}/trending/${mediaType}/week?api_key=${apiKey}&page=${page}`,
     },
     {
-        id: 2,
+        path: "top-rated",
         text: "Top Rated",
         getUrl: (page = 1) => `${baseUrl}/${mediaType}/top_rated?api_key=${apiKey}&page=${page}`,
     },
     {
-        id: 3,
+        path: "action",
         text: "Action",
         getUrl: (page = 1) => `${baseUrl}/discover/${mediaType}?api_key=${apiKey}&with_genres=28&page=${page}`,
     },
     {
-        id: 4,
+        path: "comedy",
         text: "Comedy",
         getUrl: (page = 1) => `${baseUrl}/discover/${mediaType}?api_key=${apiKey}&with_genres=35&page=${page}`,
     },
     {
-        id: 5,
+        path: "horror",
         text: "Horror",
         getUrl: (page = 1) => `${baseUrl}/discover/${mediaType}?api_key=${apiKey}&with_genres=27&page=${page}`,
     },
     {
-        id: 6,
+        path: "romance",
         text: "Romance",
         getUrl: (page = 1) => `${baseUrl}/discover/${mediaType}?api_key=${apiKey}&with_genres=10749&page=${page}`,
     },
     {
-        id: 7,
+        path: "mystery",
         text: "Mystery",
         getUrl: (page = 1) => `${baseUrl}/discover/${mediaType}?api_key=${apiKey}&with_genres=9648&page=${page}`,
     },
     {
-        id: 8,
+        path: "scifi",
         text: "Sci-Fi",
         getUrl: (page = 1) => `${baseUrl}/discover/${mediaType}?api_key=${apiKey}&with_genres=878&page=${page}`,
     },
     {
-        id: 9,
+        path: "western",
         text: "Western",
         getUrl: (page = 1) => `${baseUrl}/discover/${mediaType}?api_key=${apiKey}&with_genres=37&page=${page}`,
     },
     {
-        id: 10,
+        path: "animation",
         text: "Animation",
         getUrl: (page = 1) => `${baseUrl}/discover/${mediaType}?api_key=${apiKey}&with_genres=16&page=${page}`,
-    },
-    {
-        id: 11,
-        text: "TV Movie",
-        getUrl: (page = 1) => `${baseUrl}/discover/${mediaType}?api_key=${apiKey}&with_genres=10770&page=${page}`,
     },
 ];
