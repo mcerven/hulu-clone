@@ -21,27 +21,12 @@ export default function HeaderMenu() {
                     </Link>
                 </MenuItem>
             </div>
-            <div>
-                <MenuItem text="Trending">
-                    <FlashOnIcon />
-                </MenuItem>
-            </div>
-            <div>
-                <MenuItem text="Verified">
-                    <LiveTvIcon />
-                </MenuItem>
-            </div>
-            <div>
-                <MenuItem text="Collections">
-                    <VideoLibraryIcon />
-                </MenuItem>
-            </div>
             <div onClick={() => movieSearchRef.current.focus()}>
                 <MenuItem text="Search">
                     <SearchIcon />
                 </MenuItem>
             </div>
-            <div style={{marginLeft: '-1em'}}>
+            <div>
                 <MovieSearch ref={movieSearchRef} />
             </div>
         </div>
