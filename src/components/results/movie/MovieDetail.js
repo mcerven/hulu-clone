@@ -27,8 +27,6 @@ const getTrailer = async (id, setTrailerUrl) => {
         const response = await fetch(requests.getMovieTrailer(id));
         const data = await response.json();
         
-        console.log(data)
-        
         if (!data || data.success === false) {
             throw Error(data?.status_message);
         }
