@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import './MovieDetail.css'
 import { useParams } from 'react-router-dom';
 import requests from '../../../requests';
-import StarIcon from '@material-ui/icons/Star';
 import MovieTrailerButton from './MovieTrailerButton';
 import NoImage from './../../../assets/images/NoImage.png';
+import MovieRating from './MovieRating';
 
 const getMovie = async (id, setMovie, setError) => {
     try {
@@ -43,7 +43,6 @@ export default function MovieDetail() {
     const [trailerUrl, setTrailerUrl] = useState(null);
     const [error, setError] = useState(null);
 
-    const rating = movie?.vote_average ? movie.vote_average * 10 : null;
     const genres = movie?.genres?.map(g => g.name).join(', ');
 
     const getImageUrl = () => {
@@ -69,19 +68,22 @@ export default function MovieDetail() {
             <div className="movie-detail__info">
                 <h1>{ movie.title }</h1>
                 <div className="movie-detail__subinfo">
-                    {rating &&
+                    { movie.vote_average !== 0 &&
                         <>
-                            <span className="movie-detail__rating-icon"><StarIcon fontSize="small" /></span>
-                            <span>{ rating }%</span> 
+                            <MovieRating vote_average={movie.vote_average} />
                             <span className="movie-detail__separator">|</span>
                         </>
                     }
                     <span>{ movie.release_date }</span>
-                    <span className="movie-detail__separator">|</span>
-                    <span>{ genres }</span>
+                    { genres &&
+                        <>
+                            <span className="movie-detail__separator">|</span>
+                            <span>{ genres }</span>
+                        </>
+                    }
                 </div>
                 <p className="movie-detail__overview">{ movie.overview }</p>
-                { trailerUrl && <MovieTrailerButton trailerUrl={trailerUrl} buttonText="Play Trailer" /> }
+                { trailerUrl && <MovieTrailerButton trailerUrl={trailerUrl} buttonText="Play Trailer" title={movie.title} /> }
             </div>
         </section>
     );

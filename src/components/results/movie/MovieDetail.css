@@ -18,11 +18,6 @@
     margin-top: 0.2em;
 }
 
-.movie-detail__rating-icon {
-    color: rgb(230, 195, 1);
-    vertical-align: text-top;
-}
-
 .movie-detail__overview {
     margin: 1.5em 0;
 }

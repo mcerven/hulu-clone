@@ -4,7 +4,7 @@ import Modal from '@material-ui/core/Modal';
 import { Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
-export default function MovieTrailerButton({ trailerUrl, buttonText }) {
+export default function MovieTrailerButton({ trailerUrl, buttonText, title }) {
   const classes = useStyles();
   const [modalStyle] = useState(getModalStyle);
   const [open, setOpen] = useState(false);
@@ -12,8 +12,9 @@ export default function MovieTrailerButton({ trailerUrl, buttonText }) {
   const body = (
     <div style={modalStyle} className={classes.default}>
         <iframe
-          width="1000"
-          height="650"
+          width="800"
+          height="600"
+          title={title}
           src={trailerUrl}
           frameBorder="0"
           allowFullScreen
@@ -36,6 +37,7 @@ export default function MovieTrailerButton({ trailerUrl, buttonText }) {
 MovieTrailerButton.propTypes = {
   trailerUrl: PropTypes.string.isRequired,
   buttonText: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
 }
 
 const getModalStyle = () => ({

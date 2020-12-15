@@ -1,9 +1,6 @@
 import React, { useRef } from 'react';
 import './HeaderMenu.css';
 import HomeIcon from '@material-ui/icons/Home';
-import FlashOnIcon from '@material-ui/icons/FlashOn';
-import LiveTvIcon from '@material-ui/icons/LiveTv';
-import VideoLibraryIcon from '@material-ui/icons/VideoLibrary';
 import SearchIcon from '@material-ui/icons/Search';
 import MenuItem from './MenuItem';
 import MovieSearch from './MovieSearch';

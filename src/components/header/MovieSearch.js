@@ -45,9 +45,7 @@ export default forwardRef((props, ref) => {
               {...params}
               label="Search"
               variant="outlined"
-              inputRef={input => {
-                inputRef = input;
-              }} />
+              inputRef={input => { inputRef = input }} />
           );
         }}
         renderOption={(option) => MovieSearchOption(option)} />
