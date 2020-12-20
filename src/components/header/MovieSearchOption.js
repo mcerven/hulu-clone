@@ -12,7 +12,7 @@ export function MovieSearchOption({ id, title, poster_path, release_date, vote_a
 
     return (
         <div className="movie-search-option" style={{width: '100%'}}>
-            <Link className="button-link" to={`/movies/${id}`}>
+            <Link className="button-link" to={`/movies/${id}`} title={title}>
                 <div className="movie-search-option__content" style={{width: '100%'}}>
                     <img src={imageUrl} alt={`${title}`} width="50" />
                     <div style={{width: '70%'}}>
