@@ -1,0 +1,13 @@
+.movie-actor {
+    display: flex;
+    flex-direction: column;
+}
+
+.movie-actor__character {
+    font-size: larger;
+}
+
+.movie-actor__name {
+    font-size: smaller;
+    opacity: 0.8;
+}

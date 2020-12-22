@@ -6,4 +6,5 @@ export default {
     getMoviesByTitle: title => `${baseUrl}/search/movie?api_key=${apiKey}&language=en-US&query=${title}&page=1&include_adult=false`,
     getMovieDetails: id => `${baseUrl}/movie/${id}?api_key=${apiKey}`,
     getMovieTrailer: id => `${baseUrl}/movie/${id}/videos?api_key=${apiKey}&language=en-US`,
+    getActors: id => `${baseUrl}/movie/${id}/credits?api_key=${apiKey}&language=en-US`,
 }

@@ -1,0 +1,10 @@
+.movie-actors__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em;
+}
+
+.movie-actors__title {
+    font-size: 2rem;
+    padding-bottom: 0.5em;
+}

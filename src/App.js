@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-d
 import './App.css';
 import Header from './components/header/Header';
 import Nav from './components/nav/Nav';
-import MovieDetail from './components/results/movie/MovieDetail';
+import MovieDetail from './components/results/movie-detail/MovieDetail';
 import Results from './components/results/Results';
 import NotFound from './components/error/NotFound';
 

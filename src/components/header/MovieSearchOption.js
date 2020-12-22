@@ -4,7 +4,7 @@ import { Typography } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import { PropTypes } from 'prop-types';
 import NoImage from './../../assets/images/NoImage.png';
-import MovieRating from '../results/movie/MovieRating';
+import MovieRating from '../results/movie-detail/MovieRating';
 
 export function MovieSearchOption({ id, title, poster_path, release_date, vote_average }) {
     const imageUrl = poster_path ? `https://image.tmdb.org/t/p/w200${poster_path}`
