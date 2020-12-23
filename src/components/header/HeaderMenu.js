@@ -12,11 +12,11 @@ export default function HeaderMenu() {
     return (
         <div className="header-menu">
             <div>
-                <MenuItem text="Home" active>
-                    <Link to={'/'} className="button-link">
+                <Link to={'/'} className="button-link">
+                    <MenuItem text="Home" active>
                         <HomeIcon />
-                    </Link>
-                </MenuItem>
+                    </MenuItem>
+                </Link>
             </div>
             <div onClick={() => movieSearchRef.current.focus()}>
                 <MenuItem text="Search">
