@@ -1,0 +1,27 @@
+.actor-detail {
+    display: flex;
+    align-items: flex-start;
+    gap: 3em;
+}
+
+.actor-detail__card {
+    padding: 2em 0 4em 0;
+}
+
+.actor-detail__image {
+    object-fit: cover;
+}
+
+.actor-detail h1 {
+    font-size: 3.5rem;
+    letter-spacing: 1px;
+}
+
+.actor-detail__subinfo {
+    opacity: 0.8;
+    margin-top: 0.2em;
+}
+
+.actor-detail__overview {
+    margin: 1.5em 0;
+}

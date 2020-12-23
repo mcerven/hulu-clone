@@ -4,6 +4,7 @@ import './App.css';
 import Header from './components/header/Header';
 import Nav from './components/nav/Nav';
 import MovieDetail from './components/results/movie-detail/MovieDetail';
+import ActorDetail from './components/results/actor-detail/ActorDetail';
 import Results from './components/results/Results';
 import NotFound from './components/error/NotFound';
 
@@ -18,6 +19,7 @@ export default function App() {
             <Switch>
               <Route path="/movies/category/:id" component={Results} />
               <Route path="/movies/:id" component={MovieDetail} />
+              <Route path="/actors/:id" component={ActorDetail} />
               <Route path="/error/404" component={NotFound} />
               <Redirect from="/" to="/movies/category/trending" />
               <Redirect path="/*" to="/error/404" />

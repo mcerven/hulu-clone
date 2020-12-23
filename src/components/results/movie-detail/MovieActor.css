@@ -1,6 +1,7 @@
 .movie-actor {
     display: flex;
     flex-direction: column;
+    width: 200px;
 }
 
 .movie-actor__character {

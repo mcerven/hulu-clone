@@ -8,7 +8,7 @@ export default function MovieActors({ actors }) {
             <h2 className="movie-actors__title">Cast</h2>
             <div className="movie-actors__list">
                 {actors.map(actor => (
-                    MovieActor(actor)
+                    <MovieActor key={actor.id} {...actor} />
                 ))}
             </div>
         </section>

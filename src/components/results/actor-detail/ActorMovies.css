@@ -1,0 +1,10 @@
+.actor-movies__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em;
+}
+
+.actor-movies__title {
+    font-size: 2rem;
+    padding-bottom: 0.5em;
+}

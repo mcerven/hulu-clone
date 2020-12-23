@@ -1,0 +1,9 @@
+.actor-movie {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+}
+
+.actor-movie__image {
+    object-fit: cover;
+}

@@ -7,4 +7,6 @@ export default {
     getMovieDetails: id => `${baseUrl}/movie/${id}?api_key=${apiKey}`,
     getMovieTrailer: id => `${baseUrl}/movie/${id}/videos?api_key=${apiKey}&language=en-US`,
     getActors: id => `${baseUrl}/movie/${id}/credits?api_key=${apiKey}&language=en-US`,
+    getActorDetails: id => `${baseUrl}/person/${id}?api_key=${apiKey}&language=en-US`,
+    getActorMovies: id => `${baseUrl}/person/${id}/movie_credits?api_key=${apiKey}&language=en-US`,
 }
