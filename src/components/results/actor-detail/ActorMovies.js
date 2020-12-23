@@ -1,17 +1,45 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './ActorMovies.css';
 import ActorMovie from './ActorMovie';
+import Slider from 'react-slick';
 
 export default function ActorMovies({ actorMovies }) {
-    console.log(actorMovies)
+    const [settings, setSettings] = useState(() => calculateSliderSettings());
+
+    useEffect(() => {
+        function handleResize() {
+            setSettings(calculateSliderSettings());
+        }
+        window.addEventListener('resize', handleResize)
+    
+        return () => {
+          window.removeEventListener('resize', handleResize)
+        };
+    }, []);
+
     return (
-        <section className="actor-movies">
+        <section className="actor-movies">{}
             <h2 className="actor-movies__title">Known for</h2>
             <div className="actor-movies__list">
-                { actorMovies.map(movie => (
-                    <ActorMovie key={movie.id} {...movie} />
-                ))}
+                <Slider {...settings}>
+                    { actorMovies.map(movie => (
+                        <ActorMovie key={movie.id} {...movie} />
+                    ))}
+                </Slider>
             </div>
         </section>
     );
 }
+
+const calculateSliderSettings = () => {
+    const slidesToShow = window.innerWidth / 250;
+
+    return ({
+        dots: false,
+        infinite: false,
+        speed: 500,
+        slidesToShow: slidesToShow,
+        slidesToScroll: slidesToShow,
+        swipe: false,
+    });
+};

@@ -1,7 +1,5 @@
 .actor-movies__list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2em;
+    width: 100%;
 }
 
 .actor-movies__title {

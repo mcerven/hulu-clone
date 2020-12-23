@@ -47,7 +47,7 @@ const getActors = async (id, setActors) => {
             throw Error(data?.status_message);
         }
 
-        setActors(data.cast.slice(0, 5));
+        setActors(data.cast);
     } catch(error) {
         console.error(error);
     }

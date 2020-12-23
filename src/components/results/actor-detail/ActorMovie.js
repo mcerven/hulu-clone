@@ -7,11 +7,13 @@ export default function ActorMovie({ id, title, poster_path }) {
     const imageUrl = poster_path ? `https://image.tmdb.org/t/p/w200${poster_path}` : NoImage;
 
     return (
-        <Link to={`/movies/${id}`} className="button-link">
-            <article className="actor-movie">
-                <img className="actor-movie__image" width="200" height="300" src={imageUrl} alt={title} />
-                <div className="actor-movie__name">{title}</div>
-            </article>
-        </Link>
+        <div className="actor-movie">
+            <Link to={`/movies/${id}`} className="button-link">
+                <article>
+                    <img className="actor-movie__image" width="200" height="300" src={imageUrl} alt={title} />
+                    <div className="actor-movie__name">{title}</div>
+                </article>
+            </Link>
+        </div>
     );
 }
