@@ -32,6 +32,8 @@ const getTrailer = async (id, setTrailerUrl) => {
             throw Error(data?.status_message);
         }
 
+        if (!data.results[0]) return;
+
         setTrailerUrl(`https://www.youtube.com/embed/${data.results[0].key}?rel=0&autoplay=1`);
     } catch(error) {
         console.error(error);

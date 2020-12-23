@@ -2,6 +2,20 @@ import React, { useEffect, useState } from 'react';
 import './ActorMovies.css';
 import ActorMovie from './ActorMovie';
 import Slider from 'react-slick';
+import PropTypes from 'prop-types';
+
+const calculateSliderSettings = () => {
+    const slidesToShow = window.innerWidth / 250;
+
+    return ({
+        dots: false,
+        infinite: false,
+        speed: 500,
+        slidesToShow: slidesToShow,
+        slidesToScroll: slidesToShow,
+        swipe: false,
+    });
+};
 
 export default function ActorMovies({ actorMovies }) {
     const [settings, setSettings] = useState(() => calculateSliderSettings());
@@ -31,15 +45,6 @@ export default function ActorMovies({ actorMovies }) {
     );
 }
 
-const calculateSliderSettings = () => {
-    const slidesToShow = window.innerWidth / 250;
-
-    return ({
-        dots: false,
-        infinite: false,
-        speed: 500,
-        slidesToShow: slidesToShow,
-        slidesToScroll: slidesToShow,
-        swipe: false,
-    });
-};
+ActorMovies.propTypes = {
+    actorMovies: PropTypes.array.isRequired,
+}

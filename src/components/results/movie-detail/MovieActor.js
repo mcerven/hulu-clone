@@ -2,6 +2,7 @@ import React from 'react';
 import './MovieActor.css';
 import NoProfileImage from './../../../assets/images/NoProfileImage.jpg';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 export default function MovieActor({ id, name, character, profile_path }) {
     const imageUrl = profile_path ? `https://image.tmdb.org/t/p/w200${profile_path}` : NoProfileImage;
@@ -17,4 +18,11 @@ export default function MovieActor({ id, name, character, profile_path }) {
             </Link>
         </div>
     );
+}
+
+MovieActor.propTypes = {
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    character: PropTypes.string.isRequired,
+    profile_path: PropTypes.string,
 }

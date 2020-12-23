@@ -1,6 +1,6 @@
 # Hulu clone
 
-Hulu clone is a PWA used for browsing movie content.
+Hulu clone is a web app used for browsing movie content.
 
 Demo: https://hulu-clone-30a40.web.app
 

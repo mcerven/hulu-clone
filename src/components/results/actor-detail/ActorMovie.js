@@ -2,6 +2,7 @@ import React from 'react';
 import './ActorMovie.css';
 import NoImage from './../../../assets/images/NoImage.png';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 export default function ActorMovie({ id, title, poster_path }) {
     const imageUrl = poster_path ? `https://image.tmdb.org/t/p/w200${poster_path}` : NoImage;
@@ -16,4 +17,10 @@ export default function ActorMovie({ id, title, poster_path }) {
             </Link>
         </div>
     );
+}
+
+ActorMovie.propTypes = {
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    poster_path: PropTypes.string,
 }
