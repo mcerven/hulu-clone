@@ -33,7 +33,7 @@ export default function MovieActors({ actors }) {
 
     return (
         <section className="movie-actors">
-            <h2 className="movie-actors__title">Known for</h2>
+            <h2 className="movie-actors__title">Top cast</h2>
             <div className="movie-actors__list">
                 <Slider {...settings}>
                     {actors.map(actor => (
